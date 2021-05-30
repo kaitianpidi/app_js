@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my_cpn></my_cpn>
+
+</div>
+<!--<script type="text/x-template" id="myCpn">-->
+    <!--<div>-->
+        <!--<h2>我是标题</h2>-->
+        <!--<p>我是内容：hehehehe</p>-->
+    <!--</div>-->
+<!--</script>-->
+<template id="myCpn">
+    <div>
+        <!--<h2>我是标题</h2>-->
+        <h2>{{title}}</h2>
+        <p>我是内容：hehehe44444444he</p>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    // 1.创建组件构造器
+   // const  cpnC =Vue.extend({
+   //          template:  "#myCpn",
+   //  })
+    // Vue.component("my_cpn",cpnC)
+    Vue.component("my_cpn",{
+        template:  "#myCpn",
+        data(){
+            return {title: '我是标题'}
+        }
+    })
+    new Vue({
+        el: "#app",
+        // components: {
+        //     "my_cpn": {
+        //         template:  "#myCpn",
+        //         data(){
+        //             return {title: '我是标题'}
+        //         }
+        //     }
+        // },
+    })
+</script>
+</body>
+</html>

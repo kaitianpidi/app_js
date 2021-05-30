@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .active{
+        color: red;
+    }
+
+</style>
+<body>
+<div id="app">
+    <!--<h2 v-cloak>{{message +  ' '+name}}</h2>
+    <h2 v-once>{{message +  ' '+name}}</h2>
+    <h2 v-html="url"></h2>
+    <h2 v-pre>{{message}}</h2>
+    <a v-bind:href="ahref">baibai</a>-->
+
+    <!--<h2 :class="{active:true,line:true}">{{message}}</h2>-->
+    <!--<h2 :class="{active:isActive,line:isLine}">{{message}}</h2>-->
+    <!--<h2 :class="getClass()">{{message}} method</h2>-->
+    <!--<button v-on:click="change">切换</button>-->
+
+    <h2 :class="getArray()">{{message}} </h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    setTimeout(function () {
+    },1000)
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            name: 'cat',
+            url: '<a href="http://www.baidu.com">百度</a>',
+            ahref: 'http://wwww.baidu.com',
+            isActive: !this.isActive,
+            isLine:  true,
+            active: "aaaa",
+            line:  "bbbb"
+        },
+        methods: {
+            change: function () {
+                this.isActive = !this.isActive;
+            },
+            getClass: function () {
+                return {active:this.isActive,line:this.isLine};
+            },
+            getArray: function () {
+              return [this.active,this.line];
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

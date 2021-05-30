@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{message}}</h2>
+    <button @click="btn1Click">按钮1</button>
+    <button @click="btn1Click()">按钮2</button>
+    <button @click="btn1Click($event)">按钮3</button>
+    <button @click="btn1Click(this)">按钮4</button>
+
+    <div v-if="isFlag">
+        <label for="userName">用户名称</label>
+        <input id="userName" name="userName"/>
+    </div>
+    <div v-else>
+        <label for="email">用户邮箱</label>
+        <input id="email" name="email"/>
+    </div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            isFlag: true
+        },
+        methods: {
+          btn1Click(name){
+              console.log("-----",name);
+
+          }
+        }
+    })
+</script>
+</body>
+</html>

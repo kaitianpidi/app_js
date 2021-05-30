@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--<my_app :cmovies="movies" :cmessage="message"></my_app>-->
+    <my_app @btn_click="cpnClick"></my_app>
+</div>
+<template id="myCpn">
+    <div>
+        <h2>我是标题</h2>
+        <p v-for="item of btns">
+            <button @click="btnClick(item)">{{item}}</button>
+        </p>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    Vue.component(
+        'my_app',{
+            template: '#myCpn',
+            // props: ['cmovies','cmessage']
+            data() {
+               return {btns: ['a','b','c']}
+            },
+            methods: {
+                btnClick(item){
+                    console.log("btnClick"+item);
+                    this.$emit('btn_click',item);
+                }
+            }
+
+
+
+    })
+    const app = new Vue({
+        el: '#app',
+        methods: {
+            cpnClick(item){
+                console.log("---------",item);
+            }
+        }
+    })
+</script>
+</body>
+</html>

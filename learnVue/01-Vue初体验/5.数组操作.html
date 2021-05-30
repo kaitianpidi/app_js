@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{message}}</h2>
+
+    <input type="radio" value="man" id="man" v-model="sex">
+    <label for="man">man</label>
+    <input type="radio" value="woman" id="woman" v-model="sex">
+    <label for="woman">woman</label>
+    <h2>{{sex}}</h2>
+
+
+    <input type="checkbox" value="篮球" v-model="hobbies" id="篮球"><label for="篮球">篮球</label>
+    <input type="checkbox" value="篮球2" v-model="hobbies">篮球2
+    <input type="checkbox" value="篮球3" v-model="hobbies">篮球3
+    <input type="checkbox" value="篮球4" v-model="hobbies">篮球4
+
+    <h2>{{hobbies}}</h2>
+
+    <input type="checkbox" value="agree" v-model="isAgree" id="agree"><label for="agree">agree</label>
+    <button  :disabled="!isAgree" >下一步</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            arr: ['a','b','c'],
+            sex: 'man',
+            hobbies: [],
+            isAgree: false
+        },
+        methods: {
+           add(){
+               this.arr.unshift('d','e');
+           }
+        }
+    })
+
+   function sum(...num){
+       console.log(num);
+   }
+   sum(1,2,3,4);
+</script>
+</body>
+</html>
